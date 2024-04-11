@@ -1,0 +1,28 @@
+.teste{
+    position: absolute;
+    z-index: 9;
+    width: 80%;
+    left: 10%;
+    top: 600px;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 900px;
+    flex-direction: column;
+    font-size: 70px;
+    border-radius: 20px;
+    color: black;
+}
+.teste div{
+    font-weight: bolder;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    width: 100%;
+    text-align: center;
+    height: 130px;
+    line-height: 130px;
+}
+.teste span{
+    font-weight: lighter;
+}

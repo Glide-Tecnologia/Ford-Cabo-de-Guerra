@@ -1,0 +1,51 @@
+.cabo-de-guerra {
+    top: 248px;
+    left: 180px;
+    opacity: 0;
+    animation: slide 0.5s 0.0s linear forwards;
+}
+
+.f-150 {
+    top: 380px;
+    left: 82px;
+    opacity: 0;
+    animation: slide 0.5s 0.25s linear forwards;
+}
+
+.participe-do-desafio {
+    top: 492px;
+    left: 185px;
+    opacity: 0;
+    animation: slide 0.5s 0.5s linear forwards;
+}
+
+/* Aplicando a animação ao elemento */
+.carro {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    opacity: 0.1;
+    animation: moverCarro 20s 3s infinite forwards alternate;
+}
+
+
+.raca-forte {
+    bottom: 85px;
+    left: 420px;
+    opacity: 0;
+    animation: grow 0.5s 1.5s linear forwards;
+}
+
+.touch {
+    top: 720px;
+    left: 355px;
+    opacity: 0;
+    animation: shrinkAndGrow 2s infinite alternate, fade 2s 0.75s forwards;
+}
+
+.toque-para-comecar {
+    top: 1070px;
+    left: 0px;
+    opacity: 0;
+    animation: shake 2s ease infinite 0s, fade 2s 1s forwards;
+}

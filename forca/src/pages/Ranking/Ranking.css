@@ -1,0 +1,128 @@
+.ranking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.container-ranking {
+  position: absolute;
+  z-index: 3;
+  width: 70%;
+  top: 390px;
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  justify-content: center;
+  font-family: 'FordF1VF';
+}
+
+.ranking-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+}
+
+/* .ranking-line:nth-child(1) {
+  opacity: 0;
+  animation: slideIn 1s ease-in-out 1.1s forwards;
+}
+
+.ranking-line:nth-child(2) {
+  opacity: 0;
+  animation: slideIn 1s ease-in-out 1.2s forwards;
+}
+
+.ranking-line:nth-child(3) {
+  opacity: 0;
+  animation: slideIn 1s ease-in-out 1.3s forwards;
+}
+
+.ranking-line:nth-child(4) {
+  opacity: 0;
+  animation: slideIn 1s ease-in-out 1.4s forwards;
+}
+
+.ranking-line:nth-child(5) {
+  opacity: 0;
+  animation: slideIn 1s ease-in-out 1.5s forwards;
+}
+
+.ranking-line:nth-child(6) {
+  opacity: 0;
+  animation: slideIn 1s ease-in-out 1.6s forwards;
+} */
+
+/* .ranking-line:nth-child(7) {
+  opacity: 0;
+  animation: slideIn 1s ease-in-out 1.7s forwards;
+} */
+
+/* .ranking-line:nth-child(8) {
+  opacity: 0;
+  animation: slideIn 1s ease-in-out 1.8s forwards;
+}
+
+.ranking-line:nth-child(9) {
+  opacity: 0;
+  animation: slideIn 1s ease-in-out 1.9s forwards;
+}
+
+.ranking-line:nth-child(10) {
+  opacity: 0;
+  animation: slideIn 1s ease-in-out 2.0s forwards;
+} */
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.ranking-pontos {
+  width: 100px;
+  color: black;
+  font-size: 40px;
+}
+
+.ranking-dados {
+  width: 650px;
+  height: 50px;
+  display: flex;
+}
+
+.ranking-dados div:nth-child(1) {
+  width: 50%;
+  display: flex;
+  color: black;
+  font-size: 35px;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 4%;
+  text-transform: uppercase;
+}
+
+.ranking-dados div:nth-child(2) {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10%;
+  color: black;
+  font-size: 40px;
+}
+
+.ranking-selection {
+  background-color: #ffcd00;
+  font-weight: bold;
+}

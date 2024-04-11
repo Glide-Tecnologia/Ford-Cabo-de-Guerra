@@ -1,0 +1,77 @@
+.keyboard {
+  position: absolute;
+  z-index: 2;
+  width: 80%;
+  left: 10%;
+  top: 750px;
+  opacity: 1;
+}
+
+.hg-theme-default {
+  background-color: transparent;
+  color: #00335b;
+}
+
+.hg-theme-default .hg-button {
+  background-color: rgba(255, 255, 255, 1);
+  border: solid 2px #00335b;
+  height: 70px;
+  font-size: 25px;
+  border-radius: 10px;
+}
+
+.inputs {
+  position: absolute;
+  z-index: 1;
+  width: 74%;
+  left: 13%;
+  margin-top: 500px;
+}
+
+input {
+  width: calc(100% - 4px);
+  height: 120px;
+  text-align: center;
+  font-family: 'FordF1VF';
+  font-size: 62px;
+  color: #000;
+  text-transform: uppercase;
+  background-color: rgba(245, 0, 245, 0);
+  border: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: rgb(100, 100, 100);
+}
+
+
+.btn-cadastro {
+  position: absolute;
+  z-index: 2;
+  background-color: #ffcd00;
+  width: 40%;
+  text-align: center;
+  height: 120px;
+  line-height: 120px;
+  font-size: 60px;
+  border-radius: 25px;
+  font-family: 'MadridGrunge';
+  left: 30%;
+  top: 1360px;
+  color: #000;
+  letter-spacing: 1px;
+}
+
+/* Erros */
+.input--error {
+  box-shadow: inset 0px 0px 20px 5px rgba(255, 0, 0, 0.7) !important;
+}
+
+.text--error {
+  color: red;
+  text-shadow: inset 0px 0px 20px 5px rgba(255, 0, 0, 0.7) !important;
+}

@@ -1,0 +1,23 @@
+.resultado-nome {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    margin-top: 710px;
+    height: 120px;
+    text-align: center;
+    font-family: 'FordF1VF';
+    font-size: 62px;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.resultado-score {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    margin-top: 1010px;
+    font-size: 450px;
+    text-align: center;
+    font-family: 'MadridGrunge';
+    color: #fff;
+}

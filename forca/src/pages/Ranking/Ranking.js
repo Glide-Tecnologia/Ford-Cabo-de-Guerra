@@ -20,7 +20,7 @@ function Ranking () {
   const consultarInfo = async () => {
     let dados
     try {
-      const response = await axios.get('http://192.168.0.101:3001/cadastros')
+      const response = await axios.get('http://192.168.1.102:3001/cadastros')
       console.log(response.data)
 
       const jogadorId = parseInt(localStorage.getItem('idJogador')) // Certifique-se de que o ID seja um número
@@ -86,13 +86,20 @@ function Ranking () {
 
   return (
     <div className='ranking'>
-      <img
-        src='img/bg-ranking.png'
-        className='bg'
+      <img src='img/bg.png' className='bg' />
+      <div className='container-ranking'>{nomes}</div>
+      <img src='img/top.png' className='top' />
+      <img src='img/bottom.png' className='bottom' />
+      <div className='titulo-ranking'>RANKING</div>
+      <div className='genero'>MASCULINO</div>
+      <div
+        className='btn-cadastro'
         onTouchStart={redireconar}
         onClick={redireconar}
-      />
-      <div className='container-ranking'>{nomes}</div>
+      >
+        CONCLUIR
+      </div>
+      <img src='img/raca-forte.png' className='absolute raca-forte' />
     </div>
   )
 }

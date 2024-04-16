@@ -4,7 +4,7 @@ const cors = require('cors')
 
 // Configurações do Arduino
 const { SerialPort } = require('serialport')
-const portSensor = new SerialPort({ path: 'COM10', baudRate: 9600 })
+const portSensor = new SerialPort({ path: 'COM11', baudRate: 9600 })
 
 const app = express()
 const port = 3001 // Defina a porta que deseja usar para o servidor
@@ -122,7 +122,7 @@ function startServer () {
 
   // Rota para listar todos os cadastros
   app.get('/cadastros', (req, res) => {
-    const sql = 'SELECT * FROM jogador ORDER BY score DESC'
+    const sql = 'SELECT * FROM jogador WHERE sexo = (SELECT sexo FROM jogador ORDER BY id DESC LIMIT 1) ORDER BY score DESC'
 
     db.query(sql, (err, result) => {
       if (err) {
@@ -152,6 +152,21 @@ function startServer () {
         return
       }
       res.json({ tempos })
+    })
+  })
+
+  // Rota para zerar a contagem
+  app.get('/zerar', (req, res) => {
+    const sql = 'UPDATE jogador SET log = "" WHERE id = ( SELECT id FROM ( SELECT MAX(id) AS id FROM jogador ) AS subquery )'
+
+    db.query(sql, (err, result) => {
+      if (err) {
+        console.error('Erro ao buscar cadastros:', err)
+        res.status(500).json({ error: 'Erro ao buscar cadastros' })
+        return
+      }
+
+      res.json(result)
     })
   })
 

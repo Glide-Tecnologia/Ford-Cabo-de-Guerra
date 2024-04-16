@@ -4,7 +4,8 @@
   width: 80%;
   left: 10%;
   top: 750px;
-  opacity: 1;
+  opacity: 0;
+  animation: slide 0.5s 1.0s linear forwards;
 }
 
 .hg-theme-default {
@@ -26,6 +27,8 @@
   width: 74%;
   left: 13%;
   margin-top: 500px;
+  opacity: 0;
+  animation: fade 0.5s 0.75s linear forwards;
 }
 
 input {
@@ -40,6 +43,14 @@ input {
   border: 0;
 }
 
+.input-img {
+  position: absolute;
+  left: 105px;
+  top: 450px;
+  opacity: 0;
+  animation: slide 0.5s 0.25s linear forwards;
+}
+
 input:focus {
   outline: none;
 }
@@ -51,7 +62,7 @@ input::placeholder {
 
 .btn-cadastro {
   position: absolute;
-  z-index: 2;
+  z-index: 99;
   background-color: #ffcd00;
   width: 40%;
   text-align: center;
@@ -64,14 +75,72 @@ input::placeholder {
   top: 1360px;
   color: #000;
   letter-spacing: 1px;
+  opacity: 0;
+  transform: scale(0);
+  animation: shake 2s ease infinite 2s, fade 2s 2s forwards;
 }
-
+.acento-preto{
+  position: absolute;
+  margin-left: -149px;
+  margin-top: 20px;
+}
 /* Erros */
 .input--error {
   box-shadow: inset 0px 0px 20px 5px rgba(255, 0, 0, 0.7) !important;
 }
 
 .text--error {
-  color: red;
-  text-shadow: inset 0px 0px 20px 5px rgba(255, 0, 0, 0.7) !important;
+  color: red !important;
+  animation: shake 2s ease
+}
+
+.label {
+  position: absolute;
+  color: #fff;
+  font-family: 'MadridGrunge';
+  text-align: center;
+  width: 100%;
+  margin-top: 379px;
+  font-size: 60px;
+  opacity: 0;
+  animation: slide 0.5s 0.0s linear forwards;
+}
+
+.check-homem {
+  position: absolute;
+  bottom: 650px;
+  left: 150px;
+  opacity: 0;
+  animation: slide 0.5s 1.25s linear forwards;
+}
+
+.check-mulher {
+  position: absolute;
+  bottom: 650px;
+  left: 620px;
+  transform: rotate(8deg);
+  opacity: 0;
+  animation: slide 0.5s 1.25s linear forwards;
+}
+
+.homem {
+  position: absolute;
+  bottom: 665px;
+  color: #fff;
+  font-size: 60px;
+  font-family: 'MadridGrunge';
+  left: 280px;
+  opacity: 0;
+  animation: fade 0.5s 1.75s linear forwards;
+}
+
+.mulher {
+  position: absolute;
+  bottom: 665px;
+  color: #fff;
+  font-size: 60px;
+  font-family: 'MadridGrunge';
+  left: 754px;
+  opacity: 0;
+  animation: fade 0.5s 1.75s linear forwards;
 }

@@ -8,7 +8,7 @@ function Game () {
   const FAIXA_PRETA = 50
   const FAIXA_BRANCA = 10
   const QTD_FAIXA_MINIMA = 5
-  const QTD_FAIXA_MAXIMA = 15
+  const QTD_FAIXA_MAXIMA = 10
   const TEMPO_LIMIT = 30
   const TEMPO_MINIMO = 5
   const SCORE_LIMIT = 999
@@ -78,6 +78,14 @@ function Game () {
       // F = ma
       let m = PESO
       let f = m * a
+      // d não pode ser maior que 6m
+      if (d > (((FAIXA_PRETA + FAIXA_BRANCA) * QTD_FAIXA_MAXIMA)/100)) {
+        console.log("ENTROUUUUU")
+        d = ((FAIXA_PRETA + FAIXA_BRANCA) * QTD_FAIXA_MAXIMA)/100
+      }
+      else{
+        console.log("segue o fluxo")
+      }
       const distanciaFormatada = d.toLocaleString('pt-BR', {
         minimumFractionDigits: 2
       })
@@ -118,17 +126,17 @@ function Game () {
 
     t = TEMPO_LIMIT - t
 
-    // console.log('Espaço MAX:' + dmax)
-    // console.log('Tempo MAX:' + tmax)
-    // console.log('Força MAX: ' + fmax)
+    console.log('Espaço MAX:' + dmax)
+    console.log('Tempo MAX:' + tmax)
+    console.log('Força MAX: ' + fmax)
 
-    // console.log('Espaço:' + d)
-    // console.log('Tempo:' + t)
-    // console.log('Força: ' + f) //Newtons
+    console.log('Espaço:' + d)
+    console.log('Tempo:' + t)
+    console.log('Força: ' + f) //Newtons
 
     let dnew = (d / dmax) * (0.6 * SCORE_LIMIT) //60%
-    let tnew = (t / tmax) * (0.25 * SCORE_LIMIT) //25%
-    let fnew = (f / fmax) * (0.15 * SCORE_LIMIT) //15%
+    let tnew = (t / tmax) * (0.4 * SCORE_LIMIT) //25%
+    let fnew = (f / fmax) * (0 * SCORE_LIMIT) //15%
     // console.log('Espaço %:' + dnew)
     // console.log('Tempo %' + tnew)
     // console.log('Força % ' + fnew)
@@ -142,6 +150,7 @@ function Game () {
     // )
 
     resultado = dnew + tnew + fnew
+    resultado = dnew + tnew
     resultado = parseInt(resultado)
 
     return resultado
@@ -149,10 +158,13 @@ function Game () {
 
   const consultarInfo = async () => {
     try {
-      const response = await axios.get('http://192.168.0.101:3001/ultimoRegistro')
-      if (response.data[0].log) setLog(JSON.parse(response.data[0].log))
+      const response = await axios.get('http://192.168.1.102:3001/ultimoRegistro')
+      let registros = JSON.parse(response.data[0].log)
+      if (registros) registros.shift()
+      // console.log(registros)
+      if (response.data[0].log) setLog(registros)
       setNome(response.data[0].nome)
-      setTimeout(consultarInfo, 1000)
+      setTimeout(consultarInfo, 10)
     } catch (error) {
       console.error('Erro ao buscar o último registro:', error)
     }
@@ -160,7 +172,7 @@ function Game () {
 
   const atualizar = async () => {
     try {
-      const response = await axios.put('http://192.168.0.101:3001/calculo', {
+      const response = await axios.put('http://192.168.1.102:3001/calculo', {
         score: score,
         tempos: JSON.stringify(log),
         velocidade: velocidade,
@@ -189,11 +201,12 @@ function Game () {
   return (
     <div>
       <img
-        src='img/bg-game.png'
+        src='img/bg.png'
         className='bg'
         // onTouchStart={redireconar}
         // onClick={redireconar}
       />
+      <div className='instrucoes'>INFO</div>
       <div className='teste'>
         <div>00:{formatarTempo(segundos)}</div>
         <div>
@@ -216,6 +229,7 @@ function Game () {
           {score}
         </div> */}
       </div>
+      <img src='img/raca-forte.png' className='absolute raca-forte' />
     </div>
   )
 }

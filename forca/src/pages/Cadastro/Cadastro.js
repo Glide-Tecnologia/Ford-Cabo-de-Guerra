@@ -9,6 +9,7 @@ function Cadastro () {
   const [inputs, setInputs] = useState({})
   const [layoutName, setLayoutName] = useState('default')
   const [inputName, setInputName] = useState('default')
+  const [sexo, setSexo] = useState(false)
   const keyboard = useRef()
   const [erro, setErro] = useState(false)
 
@@ -19,12 +20,15 @@ function Cadastro () {
   const dataFetchedRef = useRef(false)
 
   const salvar = async () => {
-    if (inputs.name) {
+    if (inputs.name && sexo) {
       try {
-        const response = await axios.post('http://192.168.0.101:3001/cadastros', {
-          nome: inputs.name,
-          sexo: 'M'
-        })
+        const response = await axios.post(
+          'http://192.168.1.102:3001/cadastros',
+          {
+            nome: inputs.name,
+            sexo: sexo
+          }
+        )
         localStorage.setItem('idJogador', response.data.id)
         localStorage.setItem('nome', inputs.name)
         navigate('/instrucao')
@@ -37,6 +41,13 @@ function Cadastro () {
       setErro(true)
     }
   }
+
+  useEffect(() => {
+    if (erro == true)
+      setTimeout(() => {
+        setErro(false)
+      }, 1000)
+  }, [erro])
 
   useEffect(() => {
     inputRef.current.focus()
@@ -106,12 +117,22 @@ function Cadastro () {
     return inputs[inputName] || ''
   }
 
+  const handleSexo = sexo => {
+    console.log(sexo)
+    setSexo(sexo)
+  }
+
   return (
     <div className='cadastro'>
-      <img src='img/bg-cadastro.png' className='bg' />
+      <img src='img/bg.png' className='bg' />
+      <div className={`label ${!inputs.name && erro ? 'text--error' : ''}`}>
+        ENTRE COM SEU NOME OU APELIDO
+      </div>
       <div className='btn-cadastro' onTouchStart={() => salvar()}>
         PRÓXIMO
+        <img src='img/acento-preto.png' className='acento-preto' />
       </div>
+      <img src='img/input.png' className='input-img' />
       <div className='inputs'>
         <input
           id='name'
@@ -122,9 +143,36 @@ function Cadastro () {
           onFocus={() => setInputName('name')}
           placeholder={'Nome'}
           onChange={onChangeInput}
-          className={!inputs.name && erro ? 'input--error' : ''}
         />
       </div>
+
+      <img
+        src={`img/${sexo == 'H' ? 'check' : 'no-check'}.png`}
+        className='check-homem'
+        onClick={() => handleSexo('H')}
+        onTouchStart={() => handleSexo('H')}
+      />
+      <img
+        src={`img/${sexo == 'M' ? 'check' : 'no-check'}.png`}
+        className='check-mulher'
+        onClick={() => handleSexo('M')}
+        onTouchStart={() => handleSexo('M')}
+      />
+      <div
+        className={`homem ${!sexo && erro ? 'text--error' : ''}`}
+        onClick={() => handleSexo('H')}
+        onTouchStart={() => handleSexo('H')}
+      >
+        HOMEM
+      </div>
+      <div
+        className={`mulher ${!sexo && erro ? 'text--error' : ''}`}
+        onClick={() => handleSexo('M')}
+        onTouchStart={() => handleSexo('M')}
+      >
+        MULHER
+      </div>
+      <img src='img/raca-forte.png' className='absolute raca-forte' />
       <div className='keyboard'>
         <Keyboard
           keyboardRef={r => (keyboard.current = r)}

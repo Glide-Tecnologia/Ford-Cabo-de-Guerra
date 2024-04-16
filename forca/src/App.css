@@ -203,6 +203,50 @@ body {
   }
 }
 
+@keyframes slide-top {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-top--ranking {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+    top: 303px;
+  }
+
+  50% {
+    transform: translateY(0%);
+    opacity: 1;
+    top: 303px;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+    top: 1045px;
+  }
+}
+
+@keyframes aumentar {
+  0% {
+    padding: 51px;
+    height: 0;
+  }
+
+  100% {
+    padding: 51px;
+    height: 800px;
+  }
+}
+
 @keyframes moverCarro {
   from {
     right: 0px;

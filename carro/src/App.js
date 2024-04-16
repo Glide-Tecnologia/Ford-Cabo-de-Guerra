@@ -3,11 +3,11 @@ import axios from 'axios'
 import './App.css'
 
 function App () {
-  const LIMIT = 250
+  const LIMIT = 350
   const [tempos, setTempos] = useState([])
   const [status, setStatus] = useState(0)
   const [cor, setCor] = useState('Preta')
-  const [info, setInfo] = useState(['0', '0', '0', '200'])
+  const [info, setInfo] = useState(['0', '0', '0', '350'])
   const search = async () => {
     try {
       const response = await axios.get('http://localhost:3001/info')
@@ -20,6 +20,7 @@ function App () {
         let minutos = dataAtual.getMinutes()
         let segundos = dataAtual.getSeconds()
         let valorTotal = horas * 60 * 60 + minutos * 60 + segundos
+        // let valorTotal = minutos * 60 + segundos
         setTempos([...tempos, valorTotal])
         setCor('Branca')
 

@@ -2,22 +2,75 @@
     position: absolute;
     z-index: 1;
     width: 100%;
-    margin-top: 710px;
+    margin-top: 620px;
     height: 120px;
     text-align: center;
     font-family: 'FordF1VF';
     font-size: 62px;
     color: #000;
     text-transform: uppercase;
+    opacity: 0;
+    animation: fade 0.5s 1.0s linear forwards;
 }
 
 .resultado-score {
     position: absolute;
     z-index: 1;
     width: 100%;
-    margin-top: 1010px;
+    margin-top: 880px;
     font-size: 450px;
     text-align: center;
     font-family: 'MadridGrunge';
     color: #fff;
+    opacity: 0;
+    animation: grow 0.5s 1.25s linear forwards;
+}
+
+.seta-1 {
+    top: 86px;
+    left: 335px;
+    opacity: 0;
+    animation: slide 0.3s 0.0s linear forwards;
+}
+
+.seta-2 {
+    top: 86px;
+    left: 462px;
+    opacity: 0;
+    animation: slide 0.3s 0.1s linear forwards;
+}
+
+.seta-3 {
+    top: 86px;
+    left: 577px;
+    opacity: 0;
+    animation: slide 0.3s 0.2s linear forwards;
+}
+
+.txt-tempo {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 67px;
+    font-family: 'MadridGrunge';
+    top: 455px;
+    opacity: 0;
+    animation: slide 0.5s 0.25s linear forwards;
+}
+
+.txt-score {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 67px;
+    font-family: 'MadridGrunge';
+    top: 820px;
+    opacity: 0;
+    animation: slide 0.5s 0.75s linear forwards;
+}
+
+.input-img--resultado {
+    top: 550px;
+    opacity: 0;
+    animation: slide 0.5s 0.5s linear forwards;
 }
